@@ -11,11 +11,21 @@ state = {
     test: "stringtest"
 }
 
+handleCreateBut = event => {
+  event.preventDefault(); 
+    console.log("click Create");
+}
+
+handleSubmitBut = event => {
+    event.preventDefault(); 
+      console.log("click Submit");
+  }
 render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header>Header</Header>
+        <Header handleSubmitBut = {this.handleSubmitBut}
+        handleCreateBut={this.handleCreateBut}></Header>
         <p>{this.state.test}</p>
         <Card>Card</Card>
         <Footer>Footer</Footer>
