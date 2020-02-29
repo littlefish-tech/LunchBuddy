@@ -10,7 +10,7 @@ function Header(props) {
     
       <GroupButton onClick={props.handleCreateBut}>Create Group</GroupButton>
    </div>
-   <GroupButton onClick={props.handleSubmitBut}>Join Group</GroupButton>
+   <GroupButton onClick={props.handleJoinBut}>Join Group</GroupButton>
   </div>
     )
   }

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import  Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
+import API from "../utils/API"
 
 
 class Lunchbuddy extends Component {
@@ -23,12 +24,13 @@ handleInputChange = event => {
 
 handleCreateBut = event => {
   event.preventDefault(); 
-    console.log("click Create");
+    API.saveLunch({lunchName: this.state.lunchName});
+    // console.log(this.state.lunchName);
 }
 
-handleSubmitBut = event => {
+handleJoinBut = event => {
     event.preventDefault(); 
-      console.log("click Submit");
+      console.log("click Join");
   }
 render(){
     return (
@@ -36,7 +38,7 @@ render(){
         <Nav>Nav</Nav>
         <Header 
         handleInputChange = {this.handleInputChange}
-        handleSubmitBut = {this.handleSubmitBut}
+        handleJoinBut = {this.handleJoinBut}
         handleCreateBut={this.handleCreateBut}
         value = {this.state.lunchName}></Header>
         <p>{this.state.test}</p>
