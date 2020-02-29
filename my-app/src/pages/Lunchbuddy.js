@@ -8,8 +8,18 @@ import Card from "../components/Card";
 
 class Lunchbuddy extends Component {
 state = {
-    test: "stringtest"
-}
+    lunches: [],
+    lunchName: ""
+};
+
+handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+    // console.log(this.state.lunchName);
+  };
+
 
 handleCreateBut = event => {
   event.preventDefault(); 
@@ -24,8 +34,11 @@ render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header handleSubmitBut = {this.handleSubmitBut}
-        handleCreateBut={this.handleCreateBut}></Header>
+        <Header 
+        handleInputChange = {this.handleInputChange}
+        handleSubmitBut = {this.handleSubmitBut}
+        handleCreateBut={this.handleCreateBut}
+        value = {this.state.lunchName}></Header>
         <p>{this.state.test}</p>
         <Card>Card</Card>
         <Footer>Footer</Footer>
