@@ -6,10 +6,18 @@ module.exports = {
         .find(req.query)
         .sort({ date: -1 })
         .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).jspm(err))
+        .catch(err => res.status(422).json(err))
     },
 
+    findById: function(req, res) {
+        db.lunches
+          .findById(req.params.id)
+          .then(dbModel => res.json(dbModel))
+          .catch(err => res.status(422).json(err));
+      },
+
     create: function(req, res) {
+        console.log("********test************");
         db.lunches
         .create(req.body)
         .then(dbModel => res.json(dbModel))

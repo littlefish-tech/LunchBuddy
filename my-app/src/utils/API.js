@@ -6,6 +6,7 @@ export default {
     },
 
     saveLunch: function(lunch) {
+        // console.log(lunch);
         return axios.post("/api/lunches", lunch);
     }
 };
