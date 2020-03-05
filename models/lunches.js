@@ -5,7 +5,7 @@ const lunchSchema = new Schema({
     lunchName: { type: String, required: true }
 });
 
-const Lunch = mongoose.model("Lunch", lunchSchema);
+const Lunches = mongoose.model("Lunches", lunchSchema);
 
-module.exports = Lunch;
+module.exports = Lunches;
 

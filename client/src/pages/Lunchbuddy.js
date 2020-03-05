@@ -23,22 +23,22 @@ handleInputChange = event => {
 
 
 handleCreateBut = event => {
-  event.preventDefault(); 
+  // event.preventDefault(); 
     API.saveLunch({lunchName: this.state.lunchName});
-    // console.log(this.state.lunchName);
+    console.log(this.state.lunchName);
 }
 
-handleJoinBut = event => {
-    event.preventDefault(); 
-      console.log("click Join");
-  }
+// handleJoinBut = event => {
+//     event.preventDefault(); 
+//       console.log("click Join");
+//   }
 render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
         <Header 
         handleInputChange = {this.handleInputChange}
-        handleJoinBut = {this.handleJoinBut}
+        // handleJoinBut = {this.handleJoinBut}
         handleCreateBut={this.handleCreateBut}
         value = {this.state.lunchName}></Header>
         <p>{this.state.test}</p>
