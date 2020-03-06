@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Login from "./pages/Login";
 import Lunchbuddy from "./pages/Lunchbuddy";
@@ -9,9 +9,9 @@ import Signup from "./pages/Signup";
 
 function App() {
   return (
-<Router>
+    <Router>
       <div>
-    
+
         <Switch>
           <Route exact path="/" component={Lunchbuddy} />
           <Route exact path="/lunchbuddy" component={Lunchbuddy} />
@@ -20,8 +20,6 @@ function App() {
         </Switch>
       </div>
     </Router>
-    
-  );
-}
+  )}
 
-export default App;
+  export default App;
