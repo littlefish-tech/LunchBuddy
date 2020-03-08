@@ -2,10 +2,13 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const lunchSchema = new Schema({
-    lunchName: { type: String, required: true }
+    lunchName: { type: String, required: true },
+    restaurant: {type: String, required: true },
+    host: {type: String, required: true },
+    lunchType: {type: String, required: true }
 });
 
-const Lunch = mongoose.model("Lunch", lunchSchema);
+const Lunches = mongoose.model("Lunches", lunchSchema);
 
-module.exports = Lunch;
+module.exports = Lunches;
 
