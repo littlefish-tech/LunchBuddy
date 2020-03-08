@@ -5,7 +5,7 @@ import './App.css';
 import Login from "./pages/Login";
 import Lunchbuddy from "./pages/Lunchbuddy";
 import Signup from "./pages/Signup";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

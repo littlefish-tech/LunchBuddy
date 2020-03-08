@@ -4,13 +4,17 @@ import Header from "../components/Header";
 import  Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
 import Card from "../components/Card";
-import API from "../utils/API"
+import API from "../utils/API";
+import { Col, Row, Container } from "../components/Grid";
 
 
 class Lunchbuddy extends Component {
 state = {
     lunches: [],
-    lunchName: ""
+    lunchName: "",
+    restaurant: "",
+    host: "",
+    lunchType: ""
 };
 
 handleInputChange = event => {
@@ -18,29 +22,38 @@ handleInputChange = event => {
     this.setState({
       [name]: value
     });
-    // console.log(this.state.lunchName);
+    console.log(this.state.lunchName);
   };
 
 
 handleCreateBut = event => {
-  event.preventDefault(); 
-    API.saveLunch({lunchName: this.state.lunchName});
-    // console.log(this.state.lunchName);
+  // event.preventDefault(); 
+    API.saveLunch({
+      lunchName: this.state.lunchName,
+      restaurant: this.state.restaurant,
+      host: this.state.host,
+      lunchType: this.state.lunchType
+    });
+    console.log(this.state.lunchName);
 }
 
-handleJoinBut = event => {
-    event.preventDefault(); 
-      console.log("click Join");
-  }
+// handleJoinBut = event => {
+//     event.preventDefault(); 
+//       console.log("click Join");
+//   }
 render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
         <Header 
         handleInputChange = {this.handleInputChange}
-        handleJoinBut = {this.handleJoinBut}
+        // handleJoinBut = {this.handleJoinBut}
         handleCreateBut={this.handleCreateBut}
-        value = {this.state.lunchName}></Header>
+        lunchNameValue = {this.state.lunchName}
+        restaurant = {this.state.restaurant}
+        host = {this.state.host}
+        lunchType = {this.state.lunchType}>
+        </Header>
         <p>{this.state.test}</p>
         <Card>Card</Card>
         <Footer>Footer</Footer>

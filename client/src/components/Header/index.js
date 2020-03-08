@@ -7,10 +7,14 @@ function Header(props) {
     <div>
     <div className = "form-group" >
       <input className="form-control" onChange={props.handleInputChange} name="lunchName" value = {props.value}/>
-    
+      <input className="form-control" onChange={props.handleInputChange} name="restaurant" value = {props.value}/>
+      <input className="form-control" onChange={props.handleInputChange} name="host" value = {props.value}/>
+      <input className="form-control" onChange={props.handleInputChange} name="lunchType" value = {props.value}/>
+
+
       <GroupButton onClick={props.handleCreateBut}>Create Group</GroupButton>
    </div>
-   <GroupButton onClick={props.handleJoinBut}>Join Group</GroupButton>
+   {/* <GroupButton onClick={props.handleJoinBut}>Join Group</GroupButton> */}
   </div>
     )
   }
