@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Header from "../components/Header";
 import  Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
-import Card from "../components/Card";
+import {Card, CardList} from "../components/Card";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 
@@ -67,7 +67,16 @@ render(){
         lunchType = {this.state.lunchType}>
         </Header>
         <p>{this.state.test}</p>
-        <Card>Card</Card>
+        <CardList>
+          {this.state.lunches.map(lunch => (
+        <Card>
+          <div>{lunch.lunchName}</div>
+          <div>{lunch.restaurant}</div>
+          <div>{lunch.host}</div>
+          <div>{lunch.lunchType}</div>
+        </Card>
+        ))}
+        </CardList>
         <Footer>Footer</Footer>
         </Wrapper>
     );
