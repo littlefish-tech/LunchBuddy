@@ -7,6 +7,7 @@ import {Card, CardList} from "../components/Card";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import DeleteBtn from "../components/DeleteBtn"
+import JoinBtn from "../components/JoinBtn"
 
 
 
@@ -51,8 +52,9 @@ handleCreateBut = event => {
       restaurant: this.state.restaurant,
       host: this.state.host,
       lunchType: this.state.lunchType
-    });
-    console.log(this.state.lunchName);
+    })
+    // console.log(this.state.lunchName)
+    .then(res => this.loadLunches())
 }
 
 deleteGroupBut = id => {
@@ -66,6 +68,7 @@ deleteGroupBut = id => {
 //     event.preventDefault(); 
 //       console.log("click Join");
 //   }
+
 render(){
     return (
         <Wrapper>
@@ -88,6 +91,7 @@ render(){
           <div>{lunch.host}</div>
           <div>{lunch.lunchType}</div>
           <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
+          <JoinBtn></JoinBtn>
         </Card>
         ))}
         </CardList>
