@@ -24,7 +24,7 @@ componentDidMount() {
 loadLunches = () => {
   API.getLunches()
   .then(res => {
-    console.log(res.data);
+    console.log(res);
     this.setState({lunches: res.data});
   });
 }
@@ -40,6 +40,10 @@ handleInputChange = event => {
 
 handleCreateBut = event => {
   // event.preventDefault(); 
+  API.getYelpApi(this.state.restaurant)
+    .then(res => {
+      console.log(res.data);
+    });
     API.saveLunch({
       lunchName: this.state.lunchName,
       restaurant: this.state.restaurant,
