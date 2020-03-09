@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import GroupButton from "../GroupButton";
 
+
 function Header(props) {
     return (
     <div>

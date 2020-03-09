@@ -9,17 +9,23 @@ export default {
         console.log("lunch");
         return axios.post("/api/lunches", lunch);
     },
+    
+    deleteLunch: function(id) {
+        console.log("You are deleting group" + id)
+        return axios.delete("/api/lunches/" + id)
+    },
 
     getYelpApi: function(restaurant) {
-        return axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=pizza",{
+
+        return axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=",{
         
             headers: {
-                'Authorization':'Bearer B_U07YO8mxkLhKI8Tw-fStaN_VWDuqOPTOemMg0dIjsv-Cza1-ODOYMOfKc9s7LEBd9ntaC8ZlujDY7SNEgl763dHgfxinZIRA7FZTLADYJVdfMXNhy0XUTQ0LplXnYx'
+                Authorization:'Bearer B_U07YO8mxkLhKI8Tw-fStaN_VWDuqOPTOemMg0dIjsv-Cza1-ODOYMOfKc9s7LEBd9ntaC8ZlujDY7SNEgl763dHgfxinZIRA7FZTLADYJVdfMXNhy0XUTQ0LplXnYx'
             },
-            // params: {
-            //     restaurant: "pizza",
-            // }
+            params: {
+                restaurant: restaurant,
+            }
            
-    }
-        )}
+    })
+}
 };

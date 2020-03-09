@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import {Card, CardList} from "../components/Card";
 import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
+import DeleteBtn from "../components/DeleteBtn"
+
 
 
 class Lunchbuddy extends Component {
@@ -53,6 +55,13 @@ handleCreateBut = event => {
     console.log(this.state.lunchName);
 }
 
+deleteGroupBut = id => {
+  console.log("you have clicked" + id)
+  API.deleteLunch(id)
+    .then(res => this.loadLunches())
+    .catch(err => console.log(err))
+}
+
 // handleJoinBut = event => {
 //     event.preventDefault(); 
 //       console.log("click Join");
@@ -73,11 +82,12 @@ render(){
         <p>{this.state.test}</p>
         <CardList>
           {this.state.lunches.map(lunch => (
-        <Card>
+        <Card  key={lunch._id}>
           <div>{lunch.lunchName}</div>
           <div>{lunch.restaurant}</div>
           <div>{lunch.host}</div>
           <div>{lunch.lunchType}</div>
+          <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
         </Card>
         ))}
         </CardList>
