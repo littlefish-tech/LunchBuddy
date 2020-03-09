@@ -17,6 +17,18 @@ state = {
     lunchType: ""
 };
 
+componentDidMount() {
+  this.loadLunches();
+}
+
+loadLunches = () => {
+  API.getLunches()
+  .then(res => {
+    console.log(res.data);
+    this.setState({lunches: res.data});
+  });
+}
+
 handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
