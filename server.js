@@ -24,7 +24,7 @@ app.use(routes);
 //XXXXXXXXX_AUTHENTICATIO_NXXXXXXX
 
 //Add route for login/signup/auth
-const user = require('./routes/auth_users')
+const user = require('./routes/authUsers')
 
 // MIDDLEWARE
 app.use(morgan('dev'))

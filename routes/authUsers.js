@@ -5,12 +5,12 @@ const passport = require('../passport')
 
 router.post('/', (req, res) => {
     console.log('user signup');
-
+    //username and password for the signup page
     const { username, password } = req.body
     // ADD VALIDATION
     User.findOne({ username: username }, (err, user) => {
         if (err) {
-            console.log('User.js post error: ', err)
+            console.log('authUser.js post error: ', err)
         } else if (user) {
             res.json({
                 error: `Username already exists: ${username}`
