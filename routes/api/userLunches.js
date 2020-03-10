@@ -9,3 +9,4 @@ router
     .route("/userLunches/:id")
     .get(userLunchesController.findById)
     .delete(userLunchesController.remove)
+module.exports = router;
