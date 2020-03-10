@@ -64,10 +64,10 @@ deleteGroupBut = id => {
     .catch(err => console.log(err))
 }
 
-// handleJoinBut = event => {
-//     event.preventDefault(); 
-//       console.log("click Join");
-//   }
+handleJoinBut = id => {
+    // event.preventDefault(); 
+      console.log("click Join " + id);
+  }
 
 render(){
     return (
@@ -91,7 +91,7 @@ render(){
           <div>{lunch.host}</div>
           <div>{lunch.lunchType}</div>
           <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
-          <JoinBtn></JoinBtn>
+          <JoinBtn onClick={()=>this.handleJoinBut(lunch._id)}/>
         </Card>
         ))}
         </CardList>
