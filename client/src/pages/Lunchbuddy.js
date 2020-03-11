@@ -42,17 +42,19 @@ handleInputChange = event => {
 
 
 handleCreateBut = event => {
-  // event.preventDefault(); 
+  event.preventDefault(); 
+  console.log("You are here~~~~~~~~~~~~")
   API.getYelpApi(this.state.restaurant)
     .then(res => {
-      console.log(res.data);
-    });
-    API.saveLunch({
-      lunchName: this.state.lunchName,
-      restaurant: this.state.restaurant,
-      host: this.state.host,
-      lunchType: this.state.lunchType
+      console.log(res.data.businesses[0]);
+      API.saveLunch({
+        lunchName: this.state.lunchName,
+        restaurant: res.data.businesses[0].name,
+        host: this.state.host,
+        lunchType: this.state.lunchType
+      })
     })
+    
     // console.log(this.state.lunchName)
     .then(res => this.loadLunches())
 }

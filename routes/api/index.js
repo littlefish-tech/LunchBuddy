@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const lunchRoutes = require("./lunches");
-// const usersRoute = require("./users");
+const usersRoute = require("./users");
 const usersLunches = require("./userLunches")
 
 
 router.use("/lunches", lunchRoutes);
-// router.use("/users", usersRoute);
+router.use("/users", usersRoute);
 router.use("/userLunches", usersLunches);
 
 //If no API routes are hit, send the React app
