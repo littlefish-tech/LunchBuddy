@@ -44,6 +44,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+       {/* google */}
+
+       <meta name="google-site-verification" content="CCeZMyvFD7j604LMVO0Mwl8CVTK-9UK3kTcX0cyDp5g" />
+       
         <a href="http://localhost:6001/auth/google" class="button">
           <div>
             <span class="svgIcon t-popup-svg">
