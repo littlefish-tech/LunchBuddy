@@ -3,6 +3,7 @@ const router = express.Router()
 const User = require('../database/models/user')
 const passport = require('../passport')
 
+//local strategy setup
 router.post('/', (req, res) => {
     console.log('user signup');
     //username and password for the signup page
@@ -64,5 +65,19 @@ router.post('/logout', (req, res) => {
         res.send({ msg: 'no user to log out' })
     }
 })
+
+//google strategy 
+/* GET Google Authentication API. */
+router.get(
+    "/auth/google",
+    passport.authenticate("google", { scope: ["profile", "email"] })
+);router.get(
+    "/auth/google/callback",
+    passport.authenticate("google", { failureRedirect: "/", session: false }),
+    function(req, res) {
+        var token = req.user.token;
+        res.redirect("http://localhost:3000?token=" + token);
+    }
+);
 
 module.exports = router

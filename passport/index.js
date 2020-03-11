@@ -1,12 +1,19 @@
 const passport = require('passport')
-const LocalStrategy = require('./localStrategy')
+// const LocalStrategy = require('./localStrategy')
 const User = require('../database/models/user')
+const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
-var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;passport.serializeUser(function(user, done) {
+//google strategy 
+passport.serializeUser(function(user, done) {
 	done(null, user);
-   });passport.deserializeUser(function(user, done) {
+   });
+   
+   passport.deserializeUser(function(user, done) {
 	done(null, user);
-   });passport.use(
+
+   });
+   
+   passport.use(
 	new GoogleStrategy(
 	 {
 	  clientID: "111958886582-omi90b5s9kmugc98ibtlhm94357edth8.apps.googleusercontent.com",
@@ -23,6 +30,7 @@ var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;passport.se
 	 }
 	)
    );
+
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
 passport.serializeUser((user, done) => {
 	console.log('*** serializeUser called, user: ')
@@ -47,6 +55,6 @@ passport.deserializeUser((id, done) => {
 })
 
 //  Use Strategies 
-passport.use(LocalStrategy)
+//passport.use(LocalStrategy)
 
 module.exports = passport
