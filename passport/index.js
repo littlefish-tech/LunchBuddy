@@ -1,9 +1,9 @@
 const passport = require('passport')
-// const LocalStrategy = require('./localStrategy')
+const LocalStrategy = require('./localStrategy')
 const User = require('../models/user')
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
 
-//google strategy 
+// //google strategy 
 passport.serializeUser(function(user, done) {
 	done(null, user);
    });
@@ -55,6 +55,6 @@ passport.deserializeUser((id, done) => {
 })
 
 //  Use Strategies 
-//passport.use(LocalStrategy)
+passport.use(LocalStrategy)
 
 module.exports = passport

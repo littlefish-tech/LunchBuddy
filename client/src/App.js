@@ -12,20 +12,6 @@ import queryString from "query-string";
 
 class App extends Component {
 
-  // render() {
-  //   return (
-  //     <Router>
-  //       <div>
-
-  //         <Switch>
-  //           <Route exact path="/" component={Lunchbuddy} />
-  //           <Route exact path="/lunchbuddy" component={Lunchbuddy} />
-  //           <Route exact path="/login" component={Login} />
-  //           <Route exact path="/Signup" component={Signup} />
-  //         </Switch>
-  //       </div>
-  //     </Router>
-  
   componentWillMount() {
     var query = queryString.parse(this.props.location.search);
     if (query.token) {
@@ -33,31 +19,39 @@ class App extends Component {
       this.props.history.push("/");
    }
 }
+
   render() {
     return (
-
-      <div className="App">
-        <header className="App-header">
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Lunchbuddy} />
+            <Route exact path="/lunchbuddy" component={Lunchbuddy} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/Signup" component={Signup} />
+          </Switch>
+        </div>
+        <div className="App">
+        {/* <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
+          {/* <h1 className="App-title">Welcome to React</h1>
+        </header> */} 
+        {/* <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        </p> */}
 
        {/* google */}
 
        <meta name="google-site-verification" content="CCeZMyvFD7j604LMVO0Mwl8CVTK-9UK3kTcX0cyDp5g" />
-       
         <a href="http://localhost:6001/auth/google" class="button">
           <div>
             <span class="svgIcon t-popup-svg">
-              <svg
+              {/* <svg
                 class="svgIcon-use"
                 width="25"
                 height="37"
                 viewBox="0 0 25 25"
-              >
+              > */}
                 <g fill="none" fill-rule="evenodd">
                   <path
                     d="M20.66 12.693c0-.603-.054-1.182-.155-1.738H12.5v3.287h4.575a3.91 3.91 0 0 1-1.697 2.566v2.133h2.747c1.608-1.48 2.535-3.65 2.535-6.24z"
@@ -76,14 +70,21 @@ class App extends Component {
                     fill="#EA4335"
                   />
                 </g>
-              </svg>
+              {/* </svg> */}
             </span>
             <span class="button-label">Sign in with Google</span>
           </div>
         </a>
       </div>
+      </Router>
+    
+  // render() {
+  //   return (
+
+      
     );
   }
 }
+
 
 export default App;
