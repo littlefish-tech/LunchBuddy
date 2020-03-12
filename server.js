@@ -47,6 +47,7 @@ app.use(
 
 // Passport
 app.use(passport.initialize())
+require("./passport")
 app.use(passport.session()) // calls the deserializeUser
 
 // Routes For Auth

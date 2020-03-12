@@ -6,10 +6,10 @@ const passport = require("passport");
 // //API Routes
 // router.use("/api", apiRoutes);
 
-// //If no API routes are hit, send the React app
-// router.use(function(req, res) {
-//     res.sendFile(path.join(_dirname, "../client/build/index.html"));
-// });
+//If no API routes are hit, send the React app
+router.use(function(req, res) {
+    res.sendFile(path.join(_dirname, "../client/build/index.html"));
+});
 
 //local strategy setup
 router.post('/', (req, res) => {
