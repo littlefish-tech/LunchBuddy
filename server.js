@@ -15,9 +15,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// app.post("/api/lunches", function(req, res) {
-//   console.log(req);
-// });
+
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lunchbuddymongo");
 

@@ -1,27 +1,31 @@
 import axios from "axios";
 
-// export default {
-    // getLunches: function() {
-    //     return axios.get("/api/lunches");
-    // },
-
-//     saveLunch: function(lunch) {
-//         console.log("lunch");
-//         return axios.post("/api/lunches", lunch);
-//     }
-// };
-
-// Export an object containing methods we'll use for accessing the Dog.Ceo API
-
 export default {
-  getRestaurant: function() {
-    return axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + post.restaurant + "&location=94111");
-  },
-  getGroupDetail: function(id) {
-    return axios.get("/api/lunches" + id);
-  },
+    getLunches: function() {
+        return axios.get("/api/lunches");
+    },
 
-  getGroupList: function() {
-    return axios.get("/api/lunches");
-  }
+    saveLunch: function(lunch) {
+        console.log("lunch");
+        return axios.post("/api/lunches", lunch);
+    },
+    
+    deleteLunch: function(id) {
+        console.log("You are deleting group" + id)
+        return axios.delete("/api/lunches/" + id)
+    },
+
+    getYelpApi: function(restaurant) {
+
+        return axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+ restaurant + "&location=94111",{
+        
+            headers: {
+            Authorization: 'Bearer EGAEY_VMQ-b52IDl7iItiMgpKvRRphqB-cZRV4eRnlZIZ6fED9UV1WksLFEgUhVvwmNzlY_txJXVnHHPDSqjIUQ70KDTY_Ey6H5hQ6wNO6Gx6xZHh77oGU3fW3kuXnYx'
+            }
+            // params: {
+            //     restaurant: restaurant,
+            // }
+           
+    })
+}
 };
