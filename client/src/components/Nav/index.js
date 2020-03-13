@@ -12,11 +12,11 @@ function NavBar() {
         <div>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/" className={window.location.pathname === "/Login" 
+                    <Link to="/Login" className={window.location.pathname === "/Login" 
                         ? "nav-link active":"nav-link"}>Login</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/saved" className={window.location.pathname === "/Signup"
+                    <Link to="/Signup" className={window.location.pathname === "/Signup"
                         ? "nav-link active":"nav-link"}>Sign Up</Link>
                 </li>
             </ul>
