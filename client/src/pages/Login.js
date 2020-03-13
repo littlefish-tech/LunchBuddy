@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -20,6 +20,10 @@ class Login extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
 
     handleSubmit(event) {
         event.preventDefault()
