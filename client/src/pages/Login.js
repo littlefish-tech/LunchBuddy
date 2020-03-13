@@ -2,6 +2,24 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
+
+
+
+// class Lunchbuddy extends Component {
+// state = {
+//     test: "login"
+// }
+
+// render(){
+//     return (
+//         <p>{this.state.test}</p>
+
+//     );
+// }
+
+// }
+// export default Lunchbuddy;
+
 class Login extends Component {
     constructor() {
         super()
@@ -21,10 +39,6 @@ class Login extends Component {
         })
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-        console.log('handleSubmit')
-    }
     handleSubmit(event) {
         event.preventDefault()
         console.log('handleSubmit')
@@ -53,8 +67,8 @@ class Login extends Component {
                 console.log(error);
                 
             })
-    };
-    
+    }
+
     render() {
         if (this.state.redirectTo) {
             return <Redirect to={{ pathname: this.state.redirectTo }} />

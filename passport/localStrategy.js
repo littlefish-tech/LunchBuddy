@@ -1,7 +1,4 @@
 const User = require('../models/users')
-
-const User = require('../database/models/user')
-
 const LocalStrategy = require('passport-local').Strategy
 
 //use local strategy to locally save to db: usernames and passwords
@@ -25,6 +22,4 @@ const strategy = new LocalStrategy(
 	}
 )
 
-
 module.exports = strategy
-
