@@ -22,6 +22,9 @@ export default {
             headers: {
             Authorization: 'Bearer EGAEY_VMQ-b52IDl7iItiMgpKvRRphqB-cZRV4eRnlZIZ6fED9UV1WksLFEgUhVvwmNzlY_txJXVnHHPDSqjIUQ70KDTY_Ey6H5hQ6wNO6Gx6xZHh77oGU3fW3kuXnYx'
             }
+            // params: {
+            //     restaurant: restaurant,
+            // }
            
     })
 }
