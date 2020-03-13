@@ -2,24 +2,6 @@ import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
-
-
-
-// class Lunchbuddy extends Component {
-// state = {
-//     test: "login"
-// }
-
-// render(){
-//     return (
-//         <p>{this.state.test}</p>
-
-//     );
-// }
-
-// }
-// export default Lunchbuddy;
-
 class Login extends Component {
     constructor() {
         super()
@@ -38,6 +20,10 @@ class Login extends Component {
             [event.target.name]: event.target.value
         })
     }
+
+    handleSubmit(event) {
+        event.preventDefault()
+        console.log('handleSubmit')
 
     handleSubmit(event) {
         event.preventDefault()

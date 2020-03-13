@@ -2,7 +2,6 @@ const passport = require('passport')
 const LocalStrategy = require('./localStrategy')
 const User = require('../models/userPassport')
 
-
 // called on login, saves the id to session req.session.passport.user = {id:'..'}
 passport.serializeUser((user, done) => {
 	console.log('*** serializeUser called, user: ')
@@ -30,3 +29,4 @@ passport.deserializeUser((id, done) => {
 passport.use(LocalStrategy)
 
 module.exports = passport
+

@@ -1,7 +1,5 @@
+
 import { Link } from "react-router-dom";
-
-
-
 import React from "react";
 import "./style.css";
 
@@ -23,6 +21,5 @@ function NavBar() {
         </div>
     </nav>
 );
-  }
-  
-  export default NavBar;
+
+export default Navbar;

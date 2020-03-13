@@ -94,26 +94,4 @@ render() {
 	)
 }
 }
-
 export default Signup;
-
-
-
-
-
-
-
-// class Lunchbuddy extends Component {
-// state = {
-//     test: "signup"
-// }
-
-// render(){
-//     return (
-//         <p>{this.state.test}</p>
-
-//     );
-// }
-
-// }
-// export default Lunchbuddy;
