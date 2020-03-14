@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/" component={Lunchbuddy} />
           <Route exact path="/lunchbuddy" component={Lunchbuddy} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/Signup" component={Signup} />
+          <Route exact path="/signup" component={Signup} />
         </Switch>
       </div>
     </Router>
