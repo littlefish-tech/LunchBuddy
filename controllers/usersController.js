@@ -2,6 +2,7 @@ const db = require("../models");
 
 module.exports = {
     findAll: function(req, res){
+        console.log("###################")
         db.Users
         .find(req.query)
         .sort({ date: -1 })
@@ -17,7 +18,7 @@ module.exports = {
       },
 
     create: function(req, res) {
-        console.log("********test************");
+        console.log("********Save************");
         db.Users
         .create(req.body)
         .then(dbModel => res.json(dbModel))

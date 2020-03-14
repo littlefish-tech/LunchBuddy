@@ -27,5 +27,21 @@ export default {
             // }
            
     })
+<<<<<<< HEAD
 }
 };
+=======
+},
+
+
+getUsers: function() {
+    return axios.get("api/users");
+},
+
+saveUsers: function(user) {
+    console.log("You have successfully save the user!!!!!!!!!!!!!!!!!")
+    return axios.post("/api/users", user);
+},
+
+};
+>>>>>>> 94ac8502e9f438a0b9616fd4fbdbf746c7065afb
