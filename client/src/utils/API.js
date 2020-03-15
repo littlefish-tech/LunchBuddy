@@ -27,5 +27,16 @@ export default {
             // }
            
     })
-}
+},
+
+
+getUserName: function() {
+    return axios.get("/api/users/");
+},
+
+saveUsers: function(user) {
+    console.log("You have successfully save the user!!!!!!!!!!!!!!!!!")
+    return axios.post("/api/users", user);
+},
+
 };

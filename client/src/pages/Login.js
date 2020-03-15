@@ -1,124 +1,96 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import axios from 'axios'
+import API from '../utils/API';
+import Nav from "../components/Nav";
+import LoginFrom from "../components/LoginForm";
+import  Wrapper from "../components/Wrapper";
+import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-
-
-// class Lunchbuddy extends Component {
-// state = {
-//     test: "login"
-// }
-
-// render(){
-//     return (
-//         <p>{this.state.test}</p>
-
-//     );
-// }
-
-// }
-// export default Lunchbuddy;
 
 class Login extends Component {
-    constructor() {
-        super()
-        this.state = {
+            state = {
+            userArrs:[],
             username: '',
             password: '',
-            redirectTo: null
+        
         }
-        this.handleSubmit = this.handleSubmit.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+            // redirectTo: null
+        // this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
   
-    }
 
-    handleChange(event) {
+    handleLoginInput = event => {
+        const { name, value} = event.target;
         this.setState({
-            [event.target.name]: event.target.value
-        })
+            [name]: value
+        });
+        console.log(this.state.username)
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-        console.log('handleSubmit')
+    handleLoginbtn = (username) => {
+		// console.log("You have clicked login");
+        API.getUserName(username) 
+        .then(res => {this.setState({userArrs: res.data})
+    })
+    const userArrs = this.state.userArrs
+    // console.log(userArrs);
 
-        axios
-            .post('/user/login', {
-                username: this.state.username,
-                password: this.state.password
-            })
-            .then(response => {
-                console.log('login response: ')
-                console.log(response)
-                if (response.status === 200) {
-                    // update App.js state
-                    this.props.updateUser({
-                        loggedIn: true,
-                        username: response.data.username
-                    })
-                    // update the state to redirect to home
-                    this.setState({
-                        redirectTo: '/'
-                    })
-                }
-            }).catch(error => {
-                console.log('login error: ')
-                console.log(error);
-                
-            })
+for(let i = 0; i < userArrs.length; i++) {
+    if(userArrs[i].username === this.state.username){
+    console.log("You are login@@#######")
+    return(<Link to="/lunchbuddy" />)
     }
-
-    render() {
-        if (this.state.redirectTo) {
-            return <Redirect to={{ pathname: this.state.redirectTo }} />
-        } else {
-            return (
-                <div>
-                    <h4>Login</h4>
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="username">Username</label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    type="text"
-                                    id="username"
-                                    name="username"
-                                    placeholder="Username"
-                                    value={this.state.username}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
-                                <label className="form-label" htmlFor="password">Password: </label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
-                                <input className="form-input"
-                                    placeholder="password"
-                                    type="password"
-                                    name="password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className="form-group ">
-                            <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-                               
-                                onClick={this.handleSubmit}
-                                type="submit">Login</button>
-                        </div>
-                    </form>
-                </div>
-            )
-        }
+    else{
+        console.log("please register$$$$$$$$$")
     }
 }
 
+// userArrs.values(userArrs).includes(this.state.username) ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
+
+// userArrs.map(userArr => {
+//     userArr.username === this.state.username ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
+
+//     // console.log(this.state.userArr);
+//     //    console.log(userArr.username);
+//      }   
+//   // if()  
+// )    
+// console.log(this.state.username)
+    }
+
+    
+
+    render(){
+		return (
+			<Wrapper>
+			<Nav>Nav</Nav>
+			<LoginFrom 
+			handleLoginInput={this.handleLoginInput}
+			handleLoginbtn={this.handleLoginbtn}
+			username={this.state.username}
+			password={this.state.password}>
+			</LoginFrom>
+			<Footer>Footer</Footer>
+			</Wrapper>
+		);
+	}
+	
+	}
 export default Login;
+
+// userArrs.map(userArr => (userArr.username === this.state.username ? console.log("You are signed In") : console.log("Please register"))
+
+// handleLoginbtn = () => {
+//     console.log("You have clicked login");
+//     API.getUserName() 
+//     .then(res => {this.setState({userArr: res.data})
+// })
+    
+// console.log(this.state.userArr);
+   
+//     // if()      
+// }
