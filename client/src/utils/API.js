@@ -30,9 +30,9 @@ export default {
 },
 
 
-getUsers: function() {
-    return axios.get("api/users");
-},
+// getUserName: function(username) {
+//     return axios.get("/api/users/" + username);
+// },
 
 saveUsers: function(user) {
     console.log("You have successfully save the user!!!!!!!!!!!!!!!!!")

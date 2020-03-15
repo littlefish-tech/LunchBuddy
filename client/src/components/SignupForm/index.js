@@ -1,7 +1,7 @@
 import React from "react";
 import GroupButton from "../GroupButton";
 
-function Header(props) {
+function SignupForm(props) {
     return (
     <div>
     <div className = "signupform-group" >
@@ -17,4 +17,4 @@ function Header(props) {
     )
   }
   
-  export default Header;
+  export default SignupForm;

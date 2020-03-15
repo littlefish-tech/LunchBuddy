@@ -9,4 +9,9 @@ router
 .route("/:id")
 .get(usersController.findById);
 
+// router
+// .router("/:users")
+// .get(usersController.findOne);
+
+
 module.exports = router;
