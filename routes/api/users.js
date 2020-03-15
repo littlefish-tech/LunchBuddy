@@ -10,7 +10,7 @@ router
 .get(usersController.findById);
 
 // router
-// .router("/:users")
+// .route("/:username")
 // .get(usersController.findOne);
 
 
