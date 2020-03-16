@@ -8,7 +8,7 @@ router.route("/")
     router
     .route("/:id")
     .get(lunchesController.findById)
-    // .put(lunchesController.update)
+    .put(lunchesController.update)
     .delete(lunchesController.remove);
 
     module.exports = router;

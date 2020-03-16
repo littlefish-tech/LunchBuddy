@@ -14,6 +14,9 @@ export default {
         console.log("You are deleting group" + id)
         return axios.delete("/api/lunches/" + id)
     },
+    updateLunch: function(id, attendeeCount){
+        return axios.put("/api/lunches/" + id,{$inc: {attendees:+1}});
+    },
 
     getYelpApi: function(restaurant) {
 
