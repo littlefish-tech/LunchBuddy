@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import GroupButton from "../GroupButton";
 import Jumbotron from "react-bootstrap/Jumbotron";
-
+import backgroundImage from "./public/backgroundImage.png";
 
 function Header(props) {
   return (
@@ -10,8 +10,9 @@ function Header(props) {
       <div className="container formGroup">
         <div className="row">
           <div className="col-md-6">
-            <div className="backgroundImg" style={{ backgroundImage: 'url(${props.backgroundImage' }}>
-              {/* {props.children} */}
+            <div className="backgroundImg">
+              <img src={backgroundImage} alt="background image" />
+
             </div>
           </div>
           <div className="col-md-6">

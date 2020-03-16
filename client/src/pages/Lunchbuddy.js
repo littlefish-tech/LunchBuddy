@@ -20,7 +20,8 @@ state = {
     lunchType: "",
     lunchTime: "",
     image: "",
-    restaurantLink: ""
+    restaurantLink: "",
+    attendees: null
 
     
 };
@@ -60,7 +61,8 @@ handleCreateBut = event => {
         host: this.state.host,
         lunchType: this.state.lunchType,
         lunchTime: this.state.lunchTime,
-        restaurantLink: res.data.businesses[0].url
+        restaurantLink: res.data.businesses[0].url,
+        attendees: 1
       })
     })
     
@@ -78,6 +80,10 @@ deleteGroupBut = id => {
 handleJoinBut = id => {
     // event.preventDefault(); 
       console.log("click Join " + id);
+      this.state.attendees++;
+      API.updateLunch(id,this.state.attendees)
+      .then(res => this.loadLunches())
+      .catch(err => console.log(err));
   }
 
 render(){
@@ -104,6 +110,7 @@ render(){
           <div>{lunch.lunchType}</div>
           <div>{lunch.lunchTime}</div>
           <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
+          <div>{lunch.attendees}</div>
           <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
           <JoinBtn onClick={()=>this.handleJoinBut(lunch._id)}/>
         </Card>
@@ -116,6 +123,3 @@ render(){
 
 }
 export default Lunchbuddy;
-
-// image={this.state.image}
-        // restaurantLink={this.state.restaurantLink}
