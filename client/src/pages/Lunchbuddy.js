@@ -84,22 +84,20 @@ render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header 
+        <Header>
         handleInputChange = {this.handleInputChange}
-        // handleJoinBut = {this.handleJoinBut}
         handleCreateBut={this.handleCreateBut}
         lunchNameValue = {this.state.lunchName}
         restaurant = {this.state.restaurant}
         host = {this.state.host}
         lunchType = {this.state.lunchType}
         lunchTime = {this.state.lunchTime}>
-        
         </Header>
         <p>{this.state.test}</p>
         <CardList>
           {this.state.lunches.map(lunch => (
         <Card  key={lunch._id}>
-          <img src={lunch.image} />
+          <img src={lunch.image} className="lunchImg"/>
           <div>{lunch.lunchName}</div>
           <div>{lunch.restaurant}</div>
           <div>{lunch.host}</div>
