@@ -8,7 +8,8 @@ const lunchSchema = new Schema({
     lunchType: {type: String, required: true },
     lunchTime: {type: String, required: true },
     image: {type: String, required: false},
-    restaurantLink: {type: String, required: true }
+    restaurantLink: {type: String, required: true },
+    attendees: {type: Number}
 });
 
 const Lunches = mongoose.model("Lunches", lunchSchema);
