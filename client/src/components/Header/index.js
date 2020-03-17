@@ -1,17 +1,16 @@
 import React from "react";
 import "./style.css";
 import GroupButton from "../GroupButton";
-import Jumbotron from "react-bootstrap/Jumbotron";
-import backgroundImage from "./public/backgroundImage.png";
+
 
 function Header(props) {
   return (
-    <Jumbotron>
-      <div className="container formGroup">
+    <div className="jumbotron">
+      <div className="container">
         <div className="row">
           <div className="col-md-6">
             <div className="backgroundImg">
-              <img src={backgroundImage} alt="background image" />
+              <img src="/backgroundImage.jpg" alt="background image" />
 
             </div>
           </div>
@@ -27,7 +26,7 @@ function Header(props) {
           </div>
         </div>
       </div>
-    </Jumbotron>
+    </div>
   );
 }
 

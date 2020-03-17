@@ -1,8 +1,26 @@
 .form-group {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
-.formGroup {
-    margin-top: 25vh;
+.form-group {
+    margin-top: 20vh;
+    margin-right: 0px;
+}
+
+.jumbotron {
+    margin-left: 0px;
+    padding-left: 0px!important;
+}
+
+.backgroundImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+div.jumbotron {
+    padding-left: 0px;
+    padding-top: 0px;
 }

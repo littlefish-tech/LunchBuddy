@@ -17,9 +17,8 @@ export function Card({ children }) {
 export function CardList({ children }) {
   return (
     <div>
-      <li>
         {children}
-      </li>
+    
     </div>
   )
 }
