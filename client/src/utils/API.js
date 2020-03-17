@@ -30,7 +30,7 @@ export default {
     },
 
     userLogin: function(credentials){
-        return axios.post("/api/login", credentials);
+        return axios.post("/api/login/user", credentials);
     },
 
     getUserName: function () {

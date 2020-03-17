@@ -28,27 +28,27 @@ app.use(routes);
 
 //routes for testing
 
-app.get("/", function(req, res){
-  console.log("test");
-  if(req.user){
-      res.redirect("/lunchbuddy");
-  }
-  res.redirect("/signup");
-});
-app.get("/login", function(req, res){
-  if(req.user){
-      res.redirect("/lunchbuddy");
-  }
-  res.redirect("/login");
-});
+// app.get("/", function(req, res){
+//   console.log("test");
+//   if(req.user){
+//       res.redirect("/lunchbuddy");
+//   }
+//   res.redirect("/signup");
+// });
+// app.get("/login", function(req, res){
+//   if(req.user){
+//       res.redirect("/lunchbuddy");
+//   }
+//   res.redirect("/login");
+// });
 
-app.get("/lunchbuddy", isAuthenticated, function (req, res){
-  res.redirect("/lunchbuddy");
-});
+// app.get("/lunchbuddy", isAuthenticated, function (req, res){
+//   res.redirect("/lunchbuddy");
+// });
 
-app.get("/user", function(req, res){
-  res.send(req.user);
-});
+// app.get("/user", function(req, res){
+//   res.send(req.user);
+// });
 
 
 //api
