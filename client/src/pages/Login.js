@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 class Login extends Component {
             state = {
-            userArrs:[],
+            // userArrs:[],
             username: '',
             password: '',
         
@@ -28,26 +28,29 @@ class Login extends Component {
         this.setState({
             [name]: value
         });
-        console.log(this.state.username)
+        // console.log(this.state.username)
     }
 
-    handleLoginbtn = (username) => {
+    handleLoginbtn = (event) => {
+        event.preventDefault(); 
 		// console.log("You have clicked login");
-        API.getUserName(username) 
-        .then(res => {this.setState({userArrs: res.data})
-    })
-    const userArrs = this.state.userArrs
+        // API.getUserName(username) 
+        // .then(res => {this.setState({userArrs: res.data})
+        API.userLogin({username: this.state.username, password: this.state.password});        
+
+    }
+    // const userArrs = this.state.userArrs
     // console.log(userArrs);
 
-for(let i = 0; i < userArrs.length; i++) {
-    if(userArrs[i].username === this.state.username){
-    console.log("You are login@@#######")
-    return(<Link to="/lunchbuddy" />)
-    }
-    else{
-        console.log("please register$$$$$$$$$")
-    }
-}
+// for(let i = 0; i < userArrs.length; i++) {
+//     if(userArrs[i].username === this.state.username){
+//     console.log("You are login@@#######")
+//     return(<Link to="/lunchbuddy" />)
+//     }
+//     else{
+//         console.log("please register$$$$$$$$$")
+//     }
+// }
 
 // userArrs.values(userArrs).includes(this.state.username) ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
 
@@ -60,7 +63,7 @@ for(let i = 0; i < userArrs.length; i++) {
 //   // if()  
 // )    
 // console.log(this.state.username)
-    }
+    // }
 
     
 

@@ -1,5 +1,6 @@
-const User = require('../models/users')
-const LocalStrategy = require('passport-local').Strategy
+const User = require('../models/users');
+var passport = require("passport");
+const LocalStrategy = require('passport-local').Strategy;
 
 //use local strategy to locally save to db: usernames and passwords
 const strategy = new LocalStrategy(
