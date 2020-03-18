@@ -9,7 +9,7 @@ function SignupForm(props) {
       <div className="signupform-group" style={{ width: "100vw" }} >
         <div><input className="signup-form" onChange={props.handleSignupInput} name="username" placeholder="Username" value={props.value} /></div>
         <div><input className="signup-form" onChange={props.handleSignupInput} name="password" placeholder="Password" value={props.value} /></div>
-        <GroupButton onClick={props.handleSignupBtn}><Link to={props.redirectTo}>Sign Up</Link></GroupButton>
+        <GroupButton onClick={props.handleSignupBtn}><Link to={props.redirectTo} style={{color: "black"}}>Sign Up</Link></GroupButton>
       </div>
     </div>
   )

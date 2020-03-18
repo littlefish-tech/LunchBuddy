@@ -9,7 +9,7 @@ function LoginForm(props) {
       <div className="signupform-group" style={{ width: "100vw" }} >
         <div><input className="login-form" onChange={props.handleLoginInput} name="username" placeholder="Username" value={props.value} /></div>
         <div><input className="login-form" onChange={props.handleLoginInput} name="password" placeholder="Password" value={props.value} /></div>
-        <GroupButton onClick={props.handleLoginbtn}><Link to={props.redirectTo}>Login</Link></GroupButton>
+        <GroupButton onClick={props.handleLoginbtn}><Link to={props.redirectTo} style={{color: "black"}}>Login</Link></GroupButton>
   <div className="propMessage">{props.message}</div>
       </div>
     </div>
