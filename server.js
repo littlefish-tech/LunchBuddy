@@ -32,7 +32,7 @@ app.use(session({
 //   console.log(req);
 // });
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/lunchbuddymongo");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://lunchbuddy:lunchbuddy2@ds359298.mlab.com:59298/heroku_7bjb6l4s");
 
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
