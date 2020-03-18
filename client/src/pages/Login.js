@@ -12,10 +12,12 @@ import { Link } from "react-router-dom";
 
 class Login extends Component {
     state = {
-        userArrs: [],
+        userArrs:[],
         username: '',
         password: '',
-
+        redirectTo: "/login",
+        loggedIn: false,
+        registered: false
     }
 
 
@@ -27,25 +29,39 @@ class Login extends Component {
         console.log(this.state.username)
     }
 
-    handleLoginbtn = (username) => {
-        // console.log("You have clicked login");
-        API.getUserName(username)
-            .then(res => {
-                this.setState({ userArrs: res.data })
-            })
-        const userArrs = this.state.userArrs
-        // console.log(userArrs);
-
-        for (let i = 0; i < userArrs.length; i++) {
-            if (userArrs[i].username === this.state.username) {
-                console.log("You are login@@#######")
-                return (<Link to="/lunchbuddy" />)
+    handleLoginbtn = event => {
+		event.preventDefault();
+        API.getUserName({
+            username: this.state.username,
+            password: this.state.password
+        })
+        .then( response => {
+            console.log("login response: ")
+            console.log(response.data)
+            let usersInfo = response.data;
+           for (let user of usersInfo){
+          console.log(user.username)
+            let usernameArr = user.username;
+            if(usernameArr.includes(this.state.username)){
+                this.setState({registered: true})
             }
-            else {
-                console.log("please register$$$$$$$$$")
+            if(this.state.registered === true) {
+                //update App.js state
+                this.setState({
+                    loggedIn: true,
+                    username: response.data.username,
+                    redirectTo: "/lunchbuddy"
+                })
+            }
+            else{
+                console.log("You need to register")
+                this.setState({
+                    redirectTo: "/Signup"
+                })
             }
         }
-
+        })
+    
     }
 
 
@@ -59,7 +75,8 @@ class Login extends Component {
                     handleLoginInput={this.handleLoginInput}
                     handleLoginbtn={this.handleLoginbtn}
                     username={this.state.username}
-                    password={this.state.password}>
+                    password={this.state.password}
+                        redirectTo={this.state.redirectTo}>
                 </LoginFrom>
                 <Footer></Footer>
             </Fragment>

@@ -11,7 +11,7 @@ class Signup extends Component {
 		userArrs:[],
 		username: '',
 		password: '',
-		redirectTo: "",
+		redirectTo: "/login",
 		loggedIn: false,
 	}
 	// this.handleSubmit = this.handleSubmit.bind(this)
