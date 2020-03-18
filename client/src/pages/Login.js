@@ -16,6 +16,10 @@ class Login extends Component {
             userArrs:[],
             username: '',
             password: '',
+            redirectTo: "",
+            loggedIn: false,
+
+
         
         }
             // redirectTo: null
@@ -31,23 +35,30 @@ class Login extends Component {
         console.log(this.state.username)
     }
 
-    handleLoginbtn = (username) => {
-		// console.log("You have clicked login");
-        API.getUserName(username) 
-        .then(res => {this.setState({userArrs: res.data})
-    })
-    const userArrs = this.state.userArrs
-    // console.log(userArrs);
-
-for(let i = 0; i < userArrs.length; i++) {
-    if(userArrs[i].username === this.state.username){
-    console.log("You are login@@#######")
-    return(<Link to="/lunchbuddy" />)
+    handleLoginbtn = event => {
+		event.preventDefault();
+        API.getUserName({
+            username: this.state.username,
+            password: this.state.password
+        })
+        .then( response => {
+            console.log("login response: ")
+            console.log(response)
+            if(response.status === 200) {
+                //update App.js state
+                this.setState({
+                    loggedIn: true,
+                    username: response.data.username,
+                    redirectTo: "/lunchbuddy"
+                })
+            }
+        })
     }
-    else{
-        console.log("please register$$$$$$$$$")
-    }
-}
+        // .catech(error => {
+        //     console.log("login error: ")
+        //     console.log(error);
+        // })
+  
 
 // userArrs.values(userArrs).includes(this.state.username) ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
 
@@ -60,7 +71,7 @@ for(let i = 0; i < userArrs.length; i++) {
 //   // if()  
 // )    
 // console.log(this.state.username)
-    }
+    
 
     
 
@@ -72,7 +83,8 @@ for(let i = 0; i < userArrs.length; i++) {
 			handleLoginInput={this.handleLoginInput}
 			handleLoginbtn={this.handleLoginbtn}
 			username={this.state.username}
-			password={this.state.password}>
+			password={this.state.password}
+            redirectTo={this.state.redirectTo}>
 			</LoginFrom>
 			<Footer>Footer</Footer>
 			</Wrapper>

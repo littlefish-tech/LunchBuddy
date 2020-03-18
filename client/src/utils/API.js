@@ -31,7 +31,7 @@ export default {
 
 
 getUserName: function() {
-    return axios.get("/api/users/");
+    return axios.get("/api/users");
 },
 
 saveUsers: function(user) {

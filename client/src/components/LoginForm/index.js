@@ -1,5 +1,6 @@
 import React from "react";
 import GroupButton from "../GroupButton";
+import { Link } from "react-router-dom";
 
 function LoginForm(props) {
     return (
@@ -10,7 +11,7 @@ function LoginForm(props) {
 
 
 
-      <GroupButton onClick={props.handleLoginbtn}>Login</GroupButton>
+      <GroupButton onClick={props.handleLoginbtn}><Link to={props.redirectTo}>Login</Link></GroupButton>
    </div>
    {/* <GroupButton onClick={props.handleJoinBut}>Join Group</GroupButton> */}
   </div>

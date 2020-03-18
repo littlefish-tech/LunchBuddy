@@ -10,12 +10,10 @@ class Signup extends Component {
 		state = {
 			username: '',
 			password: '',
-			// confirmPassword: '',
+			redirectTo: "/Signup"
 
 		}
-		// this.handleSubmit = this.handleSubmit.bind(this)
-		// this.handleChange = this.handleChange.bind(this)
-	
+
 	handleSignupInput = event => {
 		const { name, value } = event.target;
     this.setState({
@@ -32,6 +30,20 @@ class Signup extends Component {
 			username: this.state.username,
 			password: this.state.password
 		})
+		.then(response => {
+			console.log(response)
+			if(response.data) {
+				console.log("successgul signup")
+				this.setState({
+					redirectTo:"/login"
+				})
+			} else {
+				console.log("Sign-up error");
+			}
+		}).catch(error => {
+			console.log("Sign up server error: ")
+			console.log(error)
+		})
 		console.log(this.state.username)
 	}
 
@@ -45,7 +57,8 @@ class Signup extends Component {
 			handleSignupInput={this.handleSignupInput}
 			handleSignupBtn={this.handleSignupBtn}
 			username={this.state.username}
-			password={this.state.password}>
+			password={this.state.password}
+			redirectTo={this.state.redirectTo}>
 			</SignupFrom>
 			<Footer>Footer</Footer>
 			</Wrapper>
@@ -56,47 +69,5 @@ class Signup extends Component {
 export default Signup;
 
 
-
-
-
-
-
-// class Lunchbuddy extends Component {
-// state = {
-//     test: "signup"
-// }
-
-// render(){
-//     return (
-//         <p>{this.state.test}</p>
-
-//     );
-// }
-
-// }
-// export default Lunchbuddy;
-
-
-
-		//request to server to add a new username/password
-		// axios.post('/api/users/', {
-		// 	username: this.state.username,
-		// 	password: this.state.password
-		// })
-		// 	.then(response => {
-		// 		console.log(response)
-		// 		if (!response.data.errmsg) {
-		// 			console.log('successful signup')
-		// 			this.setState({ //redirect to login page
-		// 				redirectTo: '/api/login'
-		// 			})
-		// 		} else {
-		// 			console.log('username already exists or is already taken')
-		// 		}
-		// 	}).catch(error => {
-		// 		console.log('signup error: ')
-		// 		console.log(error)
-
-		// 	})
 
 

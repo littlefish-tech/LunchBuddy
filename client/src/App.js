@@ -7,24 +7,7 @@ import Lunchbuddy from "./pages/Lunchbuddy";
 import Signup from "./pages/Signup";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import queryString from "query-string";
-
-
-// function App() {
-//   return (
-// <Router>
-//       <div>
-    
-//         <Switch>
-//           <Route exact path="/" component={Lunchbuddy} />
-//           <Route exact path="/lunchbuddy" component={Lunchbuddy} />
-//           <Route exact path="/login" component={Login} />
-//           <Route exact path="/Signup" component={Signup} />
-//         </Switch>
-//       </div>
-//     </Router>
-    
-//   );
-// }
+import path from "path"
 
 class App extends Component {
 
