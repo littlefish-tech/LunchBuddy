@@ -38,7 +38,7 @@ class Signup extends Component {
 					redirectTo:"/lunchbuddy"
 				})
 			} else {
-				console.log("Sign-up error");
+				console.log("Sign-up error")
 			}
 		}).catch(error => {
 			console.log("Sign up server error: ")
