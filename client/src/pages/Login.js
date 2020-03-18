@@ -17,7 +17,8 @@ class Login extends Component {
         password: '',
         redirectTo: "/login",
         loggedIn: false,
-        registered: false
+        registered: false,
+        message: "You please enter your username and password"
     }
 
 
@@ -50,13 +51,15 @@ class Login extends Component {
                 this.setState({
                     loggedIn: true,
                     username: response.data.username,
-                    redirectTo: "/lunchbuddy"
+                    redirectTo: "/lunchbuddy",
+                    message: "You have already login"
                 })
             }
             else{
                 console.log("You need to register")
                 this.setState({
-                    redirectTo: "/Signup"
+                    redirectTo: "/Signup", 
+                    message:"Please register first"
                 })
             }
         }
@@ -76,7 +79,8 @@ class Login extends Component {
                     handleLoginbtn={this.handleLoginbtn}
                     username={this.state.username}
                     password={this.state.password}
-                        redirectTo={this.state.redirectTo}>
+                        redirectTo={this.state.redirectTo}
+                        message={this.state.message}>
                 </LoginFrom>
                 <Footer></Footer>
             </Fragment>

@@ -9,6 +9,7 @@ function LoginForm(props) {
         <div><input className="signup-form" onChange={props.handleLoginInput} name="username" placeholder="Username" value={props.value} /></div>
         <div><input className="signup-form" onChange={props.handleLoginInput} name="password" placeholder="Password" value={props.value} /></div>
         <GroupButton onClick={props.handleLoginbtn}><Link to={props.redirectTo}>Login</Link></GroupButton>
+  <div>{props.message}</div>
       </div>
     </div>
   )
