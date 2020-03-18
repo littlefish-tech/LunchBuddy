@@ -1,32 +1,32 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import axios from 'axios'
 import API from '../utils/API';
 import Nav from "../components/Nav";
 import SignupFrom from "../components/SignupForm";
-import  Wrapper from "../components/Wrapper";
+import Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
 
 class Signup extends Component {
-		state = {
-			username: '',
-			password: '',
-			// confirmPassword: '',
+	state = {
+		username: '',
+		password: '',
+		// confirmPassword: '',
 
-		}
-		// this.handleSubmit = this.handleSubmit.bind(this)
-		// this.handleChange = this.handleChange.bind(this)
-	
+	}
+	// this.handleSubmit = this.handleSubmit.bind(this)
+	// this.handleChange = this.handleChange.bind(this)
+
 	handleSignupInput = event => {
 		const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-	console.log(this.state.username);
-	console.log(this.state.password);
+		this.setState({
+			[name]: value
+		});
+		console.log(this.state.username);
+		console.log(this.state.password);
 	};
 
 	handleSignupBtn = event => {
-		event.preventDefault(); 
+		event.preventDefault();
 		console.log("please click the save btn");
 		API.saveUsers({
 			username: this.state.username,
@@ -37,22 +37,23 @@ class Signup extends Component {
 
 
 
-	render(){
+	render() {
 		return (
-			<Wrapper>
-			<Nav>Nav</Nav>
-			<SignupFrom 
-			handleSignupInput={this.handleSignupInput}
-			handleSignupBtn={this.handleSignupBtn}
-			username={this.state.username}
-			password={this.state.password}>
-			</SignupFrom>
-			<Footer>Footer</Footer>
-			</Wrapper>
+			<Fragment>
+				<Nav>Nav</Nav>
+				<img src="/backgroundImage.jpg" style={{ width: "100%" }} />
+				<SignupFrom
+					handleSignupInput={this.handleSignupInput}
+					handleSignupBtn={this.handleSignupBtn}
+					username={this.state.username}
+					password={this.state.password}>
+				</SignupFrom>
+				<Footer></Footer>
+			</Fragment>
 		);
 	}
-	
-	}
+
+}
 export default Signup;
 
 

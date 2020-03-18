@@ -7,13 +7,13 @@ function NavBar() {
 
         <header className="navbar App-header" id="nav-container">
             <h1 className="App-title">Lunch Buddy</h1>
-            <nav className="navbar navbar-expand-lg">
+            <nav className="navbar navbar-expand-lg navbar-dark">
                 <section className="navbar-section">
-                    <Link to="/Login" className="btn btn-link text-secondary">
-                        <span className="text-seconday">Login</span>
+                    <Link to="/Login" className="btn">
+                        <span className="">Login</span>
                     </Link>
-                    <Link to="/Signup" className="btn btn-link">
-                        <span className="text-secondary">Sign Up</span>
+                    <Link to="/Signup" className="btn">
+                        <span className="">Sign Up</span>
                     </Link>
                 </section>
 
