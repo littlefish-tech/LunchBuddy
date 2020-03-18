@@ -4,21 +4,18 @@ import "./style.css";
 
 export function Card({ children }) {
   return (
-    <div className="container cardList">
-      <div className="row">
-        <div className="card col-md-4 float-left">
-          {children}
-        </div>
-      </div>
+    <div className="card col-md-4 col-lg-4 float-left">
+      {children}
     </div>
   )
 }
 
 export function CardList({ children }) {
   return (
-    <div>
+    <div className="container cardList">
+      <div className="row">
         {children}
-    
+      </div>
     </div>
   )
 }
