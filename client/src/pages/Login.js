@@ -16,7 +16,7 @@ class Login extends Component {
             userArrs:[],
             username: '',
             password: '',
-            redirectTo: "/login",
+            redirectTo: "",
             loggedIn: false,
 
 
@@ -41,57 +41,37 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         })
-        .then(response => {
-            console.log("Get User response: ")
-            // console.log(response)
-            // console.log(response + "+++++++")
-            let usersInfo = response.data;
-            console.log(usersInfo.username)
-            if (usersInfo.username.includes(this.state.username)){
-                console.log("getUser: Ther is a user saved in the server session")
+        .then( response => {
+            console.log("login response: ")
+            console.log(response)
+            if(response.status === 200) {
+                //update App.js state
                 this.setState({
                     loggedIn: true,
-                    // username: response.data.user.username,
+                    username: response.data.username,
                     redirectTo: "/lunchbuddy"
-
                 })
             }
-            else {
-                console.log("get user: no user");
-                this.setState({
-                    loggedIn: false,
-                    username: "",
-                    redirectTo: "/Signup"
-                })
-            }
-        
-    })
-        
-        .catch(error => {
-            console.log('login error: ')
-            console.log(error);
-            
         })
     }
-        // ({
-            
-            // username: this.state.username,
-            // password: this.state.password
+        // .catech(error => {
+        //     console.log("login error: ")
+        //     console.log(error);
         // })
-        // .then( response => {
-        //     console.log("login response: ")
-        //     console.log(response)
-        //     if(response.status === 200) {
-        //         //update App.js state
-        //         this.setState({
-        //             loggedIn: true,
-        //             username: response.data.username,
-        //             redirectTo: "/lunchbuddy"
-        //         })
-        //     }
-        // })
-    
+  
 
+// userArrs.values(userArrs).includes(this.state.username) ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
+
+// userArrs.map(userArr => {
+//     userArr.username === this.state.username ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
+
+//     // console.log(this.state.userArr);
+//     //    console.log(userArr.username);
+//      }   
+//   // if()  
+// )    
+// console.log(this.state.username)
+    
 
     
 

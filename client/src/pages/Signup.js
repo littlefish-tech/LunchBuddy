@@ -35,7 +35,7 @@ class Signup extends Component {
 			if(response.data) {
 				console.log("successgul signup")
 				this.setState({
-					redirectTo:"/lunchbuddy"
+					redirectTo:"/login"
 				})
 			} else {
 				console.log("Sign-up error");

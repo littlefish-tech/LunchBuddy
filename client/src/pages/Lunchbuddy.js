@@ -78,10 +78,6 @@ deleteGroupBut = id => {
 handleJoinBut = id => {
     // event.preventDefault(); 
       console.log("click Join " + id);
-      this.state.attendees++;
-      API.updateLunch(id,this.state.attendees)
-      .then(res => this.loadLunches())
-      .catch(err => console.log(err));
   }
 
 render(){
