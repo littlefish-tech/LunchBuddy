@@ -8,10 +8,11 @@ import Footer from "../components/Footer";
 
 class Signup extends Component {
 	state = {
+		userArrs:[],
 		username: '',
 		password: '',
-		// confirmPassword: '',
-
+		redirectTo: "",
+		loggedIn: false,
 	}
 	// this.handleSubmit = this.handleSubmit.bind(this)
 	// this.handleChange = this.handleChange.bind(this)
@@ -25,17 +26,25 @@ class Signup extends Component {
 		console.log(this.state.password);
 	};
 
-	handleSignupBtn = event => {
+	handleLoginbtn = event => {
 		event.preventDefault();
-		console.log("please click the save btn");
-		API.saveUsers({
-			username: this.state.username,
-			password: this.state.password
-		})
-		console.log(this.state.username)
-	}
-
-
+        API.getUserName({
+            username: this.state.username,
+            password: this.state.password
+        })
+        .then( response => {
+            console.log("login response: ")
+            console.log(response)
+            if(response.status === 200) {
+                //update App.js state
+                this.setState({
+                    loggedIn: true,
+                    username: response.data.username,
+                    redirectTo: "/lunchbuddy"
+                })
+            }
+        })
+    }
 
 	render() {
 		return (
@@ -46,7 +55,8 @@ class Signup extends Component {
 					handleSignupInput={this.handleSignupInput}
 					handleSignupBtn={this.handleSignupBtn}
 					username={this.state.username}
-					password={this.state.password}>
+					password={this.state.password}
+					redirectTo={this.state.redirectTo}>>
 				</SignupFrom>
 				<Footer></Footer>
 			</Fragment>

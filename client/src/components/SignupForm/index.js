@@ -1,5 +1,6 @@
 import React from "react";
 import GroupButton from "../GroupButton";
+import { Link } from "react-router-dom";
 
 function SignupForm(props) {
   return (
@@ -7,7 +8,7 @@ function SignupForm(props) {
       <div className="signupform-group" style={{ width: "100vw" }} >
         <div><input className="signup-form" onChange={props.handleSignupInput} name="username" placeholder="Username" value={props.value} /></div>
         <div><input className="signup-form" onChange={props.handleSignupInput} name="password" placeholder="Password" value={props.value} /></div>
-        <GroupButton onClick={props.handleSignupBtn}>Sign Up</GroupButton>
+        <GroupButton onClick={props.handleSignupBtn}><Link to={props.redirectTo}>Sign Up</Link></GroupButton>
       </div>
     </div>
   )
