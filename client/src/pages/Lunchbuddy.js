@@ -127,31 +127,11 @@ handleCreateBut = event => {
           <div>{lunch.lunchType}</div>
           <div>{lunch.lunchTime}</div>
           <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
-          <div>{lunch.attendees}</div>
+          <div>{lunch.attendees} joined group</div>
           <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
           <JoinBtn onClick={()=>this.handleJoinBut(lunch._id)}/>
         </Card>
         ))}
-
-        lunchTime = {this.state.lunchTime}>
-
-        </Header>
-        <p>{this.state.test}</p>
-        <CardList>
-          {this.state.lunches.map(lunch => (
-            <Card key={lunch._id}>
-              <img src={lunch.image} className="lunchImg" />
-              <div>{lunch.lunchName}</div>
-              <div>{lunch.restaurant}</div>
-              <div>{lunch.host}</div>
-              <div>{lunch.lunchType}</div>
-              <div>{lunch.lunchTime}</div>
-              <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
-              <div>{lunch.attendees}</div>
-              <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
-              <JoinBtn onClick={() => this.handleJoinBut(lunch._id)} />
-            </Card>
-          ))}
 
         </CardList>
         <Footer></Footer>
