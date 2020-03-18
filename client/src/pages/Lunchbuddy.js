@@ -8,7 +8,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import DeleteBtn from "../components/DeleteBtn"
 import JoinBtn from "../components/JoinBtn"
-
+import moment from "moment";
 
 
 class Lunchbuddy extends Component {
@@ -50,9 +50,14 @@ handleInputChange = event => {
 handleCreateBut = event => {
   event.preventDefault(); 
   console.log("You are here~~~~~~~~~~~~")
+  let timeMoment = moment(this.state.lunchTime, "HH:mm")
+  console.log("timemoment: ", timeMoment)
+  console.log("timemoment: ", timeMoment.format("HH:mm A"))
+
   API.getYelpApi(this.state.restaurant)
     .then(res => {
       console.log(res.data.businesses[0]);
+   
       API.saveLunch({
         // "https://placehold.it/300x300" : res.data.businesses[0].image_url,
         lunchName: this.state.lunchName,
@@ -60,7 +65,7 @@ handleCreateBut = event => {
         restaurant: res.data.businesses[0].name,
         host: this.state.host,
         lunchType: this.state.lunchType,
-        lunchTime: this.state.lunchTime,
+        lunchTime: timeMoment,
         restaurantLink: res.data.businesses[0].url,
         attendees: 1
       })
@@ -90,7 +95,7 @@ render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header>
+        <Header
         handleInputChange = {this.handleInputChange}
         handleCreateBut={this.handleCreateBut}
         lunchNameValue = {this.state.lunchName}
@@ -98,7 +103,7 @@ render(){
         host = {this.state.host}
         lunchType = {this.state.lunchType}
         lunchTime = {this.state.lunchTime}>
-        </Header>
+        /></Header>
         <p>{this.state.test}</p>
         <CardList>
           {this.state.lunches.map(lunch => (
