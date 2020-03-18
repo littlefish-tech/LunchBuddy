@@ -27,7 +27,7 @@ state = {
 };
 
 componentDidMount() {
-  this.loadLunches();
+  this.loadLunches(); 
 }
 
 loadLunches = () => {
@@ -50,9 +50,13 @@ handleInputChange = event => {
 handleCreateBut = event => {
   event.preventDefault(); 
   console.log("You are here~~~~~~~~~~~~")
-  let timeMoment = moment(this.state.lunchTime, "HH:mm")
+  // let timeMoment = moment(this.state.lunchTime, "T HH:mm")
+  // console.log("timemoment: ", timeMoment)
+  // console.log("timemoment: ", timeMoment.calendar("HH:mm P"))
+
+  let timeMoment = moment(this.state.lunchTime, "T hh:mm")
   console.log("timemoment: ", timeMoment)
-  console.log("timemoment: ", timeMoment.format("HH:mm A"))
+  console.log("timemoment: ", timeMoment.calendar("hh:mm P"))
 
   API.getYelpApi(this.state.restaurant)
     .then(res => {
@@ -102,12 +106,12 @@ render(){
         restaurant = {this.state.restaurant}
         host = {this.state.host}
         lunchType = {this.state.lunchType}
-        lunchTime = {this.state.lunchTime}>
-        /></Header>
+        lunchTime = {this.state.lunchTime}
+        ></Header>
         <p>{this.state.test}</p>
         <CardList>
           {this.state.lunches.map(lunch => (
-        <Card  key={lunch._id}>
+        <Card key={lunch._id}>
           <img src={lunch.image} className="lunchImg"/>
           <div>{lunch.lunchName}</div>
           <div>{lunch.restaurant}</div>
