@@ -104,7 +104,7 @@ handleCreateBut = event => {
   render() {
     return (
       <Fragment>
-        <Nav>Nav</Nav>
+        <Nav buttonLink="/login" buttonName="Log Out"></Nav>
         <Header
 
         handleInputChange = {this.handleInputChange}

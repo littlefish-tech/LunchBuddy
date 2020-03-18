@@ -49,7 +49,7 @@ class Signup extends Component {
 	render() {
 		return (
 			<Fragment>
-				<Nav>Nav</Nav>
+				<Nav buttonLink="/login" buttonName="Login"></Nav>
 				<img src="/backgroundImage.jpg" style={{ width: "100%" }} />
 				<SignupFrom
 					handleSignupInput={this.handleSignupInput}
