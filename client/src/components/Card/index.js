@@ -1,34 +1,24 @@
 import React from "react";
 import "./style.css";
 
-// function Card(props) {
-//     return <div>{props.children}</div>;
-//   }
-  
-//   export default Card;
 
-export function Card({children}) {
+export function Card({ children }) {
   return (
-    <div>
-      <ul>
-        {children}
-      </ul>
+    <div className="container cardList">
+      <div className="row">
+        <div className="card col-md-4 float-left">
+          {children}
+        </div>
+      </div>
     </div>
   )
 }
-  
-// function CardList(props) {
-//   return <div>{props.children}</div>;
-// }
 
-// export default CardList;
-
-export function CardList({children}) {
+export function CardList({ children }) {
   return (
     <div>
-      <li>
         {children}
-      </li>
+    
     </div>
   )
 }
