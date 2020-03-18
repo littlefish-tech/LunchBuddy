@@ -45,7 +45,7 @@ class Login extends Component {
             if(usernameArr.includes(this.state.username)){
                 this.setState({registered: true})
             }
-            if(this.state.registered === true) {
+            if(this.state.registered) {
                 //update App.js state
                 this.setState({
                     loggedIn: true,
