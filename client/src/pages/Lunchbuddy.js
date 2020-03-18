@@ -91,13 +91,15 @@ class Lunchbuddy extends Component {
       <Fragment>
         <Nav>Nav</Nav>
         <Header
-          handleInputChange={this.handleInputChange}
-          handleCreateBut={this.handleCreateBut}
-          lunchNameValue={this.state.lunchName}
-          restaurant={this.state.restaurant}
-          host={this.state.host}
-          lunchType={this.state.lunchType}
-          lunchTime={this.state.lunchTime}>
+
+        handleInputChange = {this.handleInputChange}
+        handleCreateBut={this.handleCreateBut}
+        lunchNameValue = {this.state.lunchName}
+        restaurant = {this.state.restaurant}
+        host = {this.state.host}
+        lunchType = {this.state.lunchType}
+        lunchTime = {this.state.lunchTime}>
+
         </Header>
         <p>{this.state.test}</p>
         <CardList>
