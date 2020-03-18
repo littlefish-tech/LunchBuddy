@@ -26,25 +26,30 @@ class Signup extends Component {
 		console.log(this.state.password);
 	};
 
-	handleLoginbtn = event => {
-		event.preventDefault();
-        API.getUserName({
-            username: this.state.username,
-            password: this.state.password
-        })
-        .then( response => {
-            console.log("login response: ")
-            console.log(response)
-            if(response.status === 200) {
-                //update App.js state
-                this.setState({
-                    loggedIn: true,
-                    username: response.data.username,
-                    redirectTo: "/lunchbuddy"
-                })
-            }
-        })
-    }
+	handleSignupBtn = event => {
+		event.preventDefault(); 
+		console.log("please click the save btn");
+		API.saveUsers({
+			username: this.state.username,
+			password: this.state.password
+		})
+		.then(response => {
+			console.log(response)
+			if(response.data) {
+				console.log("successgul signup")
+				this.setState({
+					redirectTo:"/lunchbuddy"
+				})
+			} else {
+				console.log("Sign-up error")
+			}
+		}).catch(error => {
+			console.log("Sign up server error: ")
+			console.log(error)
+		})
+		console.log(this.state.username)
+	}
+
 
 	render() {
 		return (
