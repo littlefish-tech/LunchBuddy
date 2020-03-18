@@ -19,7 +19,7 @@ class Signup extends Component {
     this.setState({
       [name]: value
     });
-	console.log(this.state.username);
+	console.log(this.state.username)
 	console.log(this.state.password);
 	};
 
