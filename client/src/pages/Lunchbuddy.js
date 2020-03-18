@@ -110,7 +110,7 @@ class Lunchbuddy extends Component {
               <div>{lunch.lunchType}</div>
               <div>{lunch.lunchTime}</div>
               <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
-              <div>{lunch.attendees}</div>
+              <div>{lunch.attendees} joined group</div>
               <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
               <JoinBtn onClick={() => this.handleJoinBut(lunch._id)} />
             </Card>
