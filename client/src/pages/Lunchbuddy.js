@@ -20,7 +20,8 @@ state = {
     lunchType: "",
     lunchTime: "",
     image: "",
-    restaurantLink: ""
+    restaurantLink: "",
+    attendees: null
 
     
 };
@@ -60,7 +61,8 @@ handleCreateBut = event => {
         host: this.state.host,
         lunchType: this.state.lunchType,
         lunchTime: this.state.lunchTime,
-        restaurantLink: res.data.businesses[0].url
+        restaurantLink: res.data.businesses[0].url,
+        attendees: 1
       })
     })
     
@@ -88,28 +90,27 @@ render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header 
+        <Header
         handleInputChange = {this.handleInputChange}
-        // handleJoinBut = {this.handleJoinBut}
         handleCreateBut={this.handleCreateBut}
         lunchNameValue = {this.state.lunchName}
         restaurant = {this.state.restaurant}
         host = {this.state.host}
         lunchType = {this.state.lunchType}
         lunchTime = {this.state.lunchTime}>
-        
         </Header>
         <p>{this.state.test}</p>
         <CardList>
           {this.state.lunches.map(lunch => (
         <Card  key={lunch._id}>
-          <img src={lunch.image} />
+          <img src={lunch.image} className="lunchImg"/>
           <div>{lunch.lunchName}</div>
           <div>{lunch.restaurant}</div>
           <div>{lunch.host}</div>
           <div>{lunch.lunchType}</div>
           <div>{lunch.lunchTime}</div>
           <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
+          <div>{lunch.attendees}</div>
           <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
           <JoinBtn onClick={()=>this.handleJoinBut(lunch._id)}/>
         </Card>
@@ -122,6 +123,3 @@ render(){
 
 }
 export default Lunchbuddy;
-
-// image={this.state.image}
-        // restaurantLink={this.state.restaurantLink}
