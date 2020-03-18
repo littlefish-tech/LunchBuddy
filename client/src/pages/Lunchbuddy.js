@@ -8,7 +8,7 @@ import API from "../utils/API";
 import { Col, Row, Container } from "../components/Grid";
 import DeleteBtn from "../components/DeleteBtn"
 import JoinBtn from "../components/JoinBtn"
-
+import moment from "moment";
 
 
 class Lunchbuddy extends Component {
@@ -24,7 +24,10 @@ class Lunchbuddy extends Component {
     attendees: null
 
 
+
+
   };
+
 
   componentDidMount() {
     this.loadLunches();
@@ -47,23 +50,35 @@ class Lunchbuddy extends Component {
   };
 
 
-  handleCreateBut = event => {
-    event.preventDefault();
-    console.log("You are here~~~~~~~~~~~~")
-    API.getYelpApi(this.state.restaurant)
-      .then(res => {
-        console.log(res.data.businesses[0]);
-        API.saveLunch({
-          // "https://placehold.it/300x300" : res.data.businesses[0].image_url,
-          lunchName: this.state.lunchName,
-          image: res.data.businesses[0].image_url,
-          restaurant: res.data.businesses[0].name,
-          host: this.state.host,
-          lunchType: this.state.lunchType,
-          lunchTime: this.state.lunchTime,
-          restaurantLink: res.data.businesses[0].url,
-          attendees: 1
+
+handleCreateBut = event => {
+  event.preventDefault(); 
+  console.log("You are here~~~~~~~~~~~~")
+  // let timeMoment = moment(this.state.lunchTime, "T HH:mm")
+  // console.log("timemoment: ", timeMoment)
+  // console.log("timemoment: ", timeMoment.calendar("HH:mm P"))
+
+  let timeMoment = moment(this.state.lunchTime, "T hh:mm")
+  console.log("timemoment: ", timeMoment)
+  console.log("timemoment: ", timeMoment.calendar("hh:mm P"))
+
+  API.getYelpApi(this.state.restaurant)
+    .then(res => {
+      console.log(res.data.businesses[0]);
+   
+      API.saveLunch({
+        // "https://placehold.it/300x300" : res.data.businesses[0].image_url,
+        lunchName: this.state.lunchName,
+        image: res.data.businesses[0].image_url,
+        restaurant: res.data.businesses[0].name,
+        host: this.state.host,
+        lunchType: this.state.lunchType,
+        lunchTime: timeMoment,
+        restaurantLink: res.data.businesses[0].url,
+        attendees: 1
+
         })
+
       })
 
       // console.log(this.state.lunchName)
@@ -98,6 +113,26 @@ class Lunchbuddy extends Component {
         restaurant = {this.state.restaurant}
         host = {this.state.host}
         lunchType = {this.state.lunchType}
+
+        lunchTime = {this.state.lunchTime}
+        ></Header>
+        <p>{this.state.test}</p>
+        <CardList>
+          {this.state.lunches.map(lunch => (
+        <Card key={lunch._id}>
+          <img src={lunch.image} className="lunchImg"/>
+          <div>{lunch.lunchName}</div>
+          <div>{lunch.restaurant}</div>
+          <div>{lunch.host}</div>
+          <div>{lunch.lunchType}</div>
+          <div>{lunch.lunchTime}</div>
+          <div><a href={lunch.restaurantLink}>View Restaurant Details</a></div>
+          <div>{lunch.attendees}</div>
+          <DeleteBtn onClick={() => this.deleteGroupBut(lunch._id)} />
+          <JoinBtn onClick={()=>this.handleJoinBut(lunch._id)}/>
+        </Card>
+        ))}
+
         lunchTime = {this.state.lunchTime}>
 
         </Header>
@@ -117,6 +152,7 @@ class Lunchbuddy extends Component {
               <JoinBtn onClick={() => this.handleJoinBut(lunch._id)} />
             </Card>
           ))}
+
         </CardList>
         <Footer></Footer>
         </Fragment>
