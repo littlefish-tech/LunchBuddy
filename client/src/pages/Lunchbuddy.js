@@ -90,7 +90,7 @@ render(){
     return (
         <Wrapper>
         <Nav>Nav</Nav>
-        <Header>
+        <Header
         handleInputChange = {this.handleInputChange}
         handleCreateBut={this.handleCreateBut}
         lunchNameValue = {this.state.lunchName}
