@@ -2,19 +2,15 @@ import React from "react";
 import GroupButton from "../GroupButton";
 
 function SignupForm(props) {
-    return (
-    <div>
-    <div className = "signupform-group" >
-    <div><input className="signup-form" onChange={props.handleSignupInput} name="username" value = {props.value}/></div>
-    <div><input className="signup-form" onChange={props.handleSignupInput} name="password" value = {props.value}/></div>
+  return (
+    <div className="container" style={{ position: "absolute", top: "40vh", "text-align": "center" }}>
+      <div className="signupform-group" style={{ width: "100vw" }} >
+        <div><input className="signup-form" onChange={props.handleSignupInput} name="username" placeholder="Username" value={props.value} /></div>
+        <div><input className="signup-form" onChange={props.handleSignupInput} name="password" placeholder="Password" value={props.value} /></div>
+        <GroupButton onClick={props.handleSignupBtn}>Sign Up</GroupButton>
+      </div>
+    </div>
+  )
+}
 
-
-
-      <GroupButton onClick={props.handleSignupBtn}>Sign Up</GroupButton>
-   </div>
-   {/* <GroupButton onClick={props.handleJoinBut}>Join Group</GroupButton> */}
-  </div>
-    )
-  }
-  
-  export default SignupForm;
+export default SignupForm;

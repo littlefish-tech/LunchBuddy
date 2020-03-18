@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 // import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import API from '../utils/API';
 import Nav from "../components/Nav";
 import LoginFrom from "../components/LoginForm";
-import  Wrapper from "../components/Wrapper";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -12,19 +11,16 @@ import { Link } from "react-router-dom";
 
 
 class Login extends Component {
-            state = {
-            userArrs:[],
-            username: '',
-            password: '',
-        
-        }
-            // redirectTo: null
-        // this.handleSubmit = this.handleSubmit.bind(this)
-        // this.handleChange = this.handleChange.bind(this)
-  
+    state = {
+        userArrs: [],
+        username: '',
+        password: '',
+
+    }
+
 
     handleLoginInput = event => {
-        const { name, value} = event.target;
+        const { name, value } = event.target;
         this.setState({
             [name]: value
         });
@@ -32,54 +28,45 @@ class Login extends Component {
     }
 
     handleLoginbtn = (username) => {
-		// console.log("You have clicked login");
-        API.getUserName(username) 
-        .then(res => {this.setState({userArrs: res.data})
-    })
-    const userArrs = this.state.userArrs
-    // console.log(userArrs);
+        // console.log("You have clicked login");
+        API.getUserName(username)
+            .then(res => {
+                this.setState({ userArrs: res.data })
+            })
+        const userArrs = this.state.userArrs
+        // console.log(userArrs);
 
-for(let i = 0; i < userArrs.length; i++) {
-    if(userArrs[i].username === this.state.username){
-    console.log("You are login@@#######")
-    return(<Link to="/lunchbuddy" />)
+        for (let i = 0; i < userArrs.length; i++) {
+            if (userArrs[i].username === this.state.username) {
+                console.log("You are login@@#######")
+                return (<Link to="/lunchbuddy" />)
+            }
+            else {
+                console.log("please register$$$$$$$$$")
+            }
+        }
+
     }
-    else{
-        console.log("please register$$$$$$$$$")
+
+
+
+    render() {
+        return (
+            <Fragment>
+                <Nav>Nav</Nav>
+                <img src="/backgroundImage.jpg" style={{width:"100%"}}/>
+                <LoginFrom
+                    handleLoginInput={this.handleLoginInput}
+                    handleLoginbtn={this.handleLoginbtn}
+                    username={this.state.username}
+                    password={this.state.password}>
+                </LoginFrom>
+                <Footer></Footer>
+            </Fragment>
+        );
     }
+
 }
-
-// userArrs.values(userArrs).includes(this.state.username) ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
-
-// userArrs.map(userArr => {
-//     userArr.username === this.state.username ? console.log("You are signed In@@@@@@@@") : console.log("Please register")
-
-//     // console.log(this.state.userArr);
-//     //    console.log(userArr.username);
-//      }   
-//   // if()  
-// )    
-// console.log(this.state.username)
-    }
-
-    
-
-    render(){
-		return (
-			<Wrapper>
-			<Nav>Nav</Nav>
-			<LoginFrom 
-			handleLoginInput={this.handleLoginInput}
-			handleLoginbtn={this.handleLoginbtn}
-			username={this.state.username}
-			password={this.state.password}>
-			</LoginFrom>
-			<Footer>Footer</Footer>
-			</Wrapper>
-		);
-	}
-	
-	}
 export default Login;
 
 // userArrs.map(userArr => (userArr.username === this.state.username ? console.log("You are signed In") : console.log("Please register"))
@@ -89,8 +76,8 @@ export default Login;
 //     API.getUserName() 
 //     .then(res => {this.setState({userArr: res.data})
 // })
-    
+
 // console.log(this.state.userArr);
-   
+
 //     // if()      
 // }
