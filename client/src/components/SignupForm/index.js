@@ -1,6 +1,7 @@
 import React from "react";
 import GroupButton from "../GroupButton";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 function SignupForm(props) {
   return (

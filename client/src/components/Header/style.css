@@ -4,7 +4,14 @@
 }
 
 .form-control {
-    border-color: #CA364B;
+    /* border-color: #CA364B; */
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color:#ecec84;
+    color: white;
 }
 .jumbotron {
     padding: 0px!important;
