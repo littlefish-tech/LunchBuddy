@@ -58,9 +58,9 @@ handleCreateBut = event => {
   // console.log("timemoment: ", timeMoment)
   // console.log("timemoment: ", timeMoment.calendar("HH:mm P"))
 
-  let timeMoment = moment(this.state.lunchTime, "T hh:mm")
+  let timeMoment = moment(this.state.lunchTime, "h:m a")
   console.log("timemoment: ", timeMoment)
-  console.log("timemoment: ", timeMoment.calendar("hh:mm P"))
+  console.log("timemoment: ", timeMoment.format("h:m a"))
 
   API.getYelpApi(this.state.restaurant)
     .then(res => {
@@ -73,7 +73,7 @@ handleCreateBut = event => {
         restaurant: res.data.businesses[0].name,
         host: this.state.host,
         lunchType: this.state.lunchType,
-        lunchTime: timeMoment,
+        lunchTime: this.state.lunchTime,
         restaurantLink: res.data.businesses[0].url,
         attendees: 1
 
@@ -104,7 +104,7 @@ handleCreateBut = event => {
   render() {
     return (
       <Fragment>
-        <Nav>Nav</Nav>
+        <Nav buttonLink="/login" buttonName="Log Out"></Nav>
         <Header
 
         handleInputChange = {this.handleInputChange}

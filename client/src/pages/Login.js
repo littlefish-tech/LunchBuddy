@@ -72,7 +72,7 @@ class Login extends Component {
     render() {
         return (
             <Fragment>
-                <Nav>Nav</Nav>
+                <Nav buttonLink="/Signup" buttonName="Sign up"></Nav>
                 <img src="/backgroundImage.jpg" style={{width:"100%"}}/>
                 <LoginFrom
                     handleLoginInput={this.handleLoginInput}
