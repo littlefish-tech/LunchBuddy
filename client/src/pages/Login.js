@@ -72,7 +72,7 @@ class Login extends Component {
     render() {
         return (
             <Fragment>
-                <Nav buttonLink="/Signup" buttonName="Sign up"></Nav>
+                <Nav buttonLink="/Signup" buttonName="Sign Up"></Nav>
                 <img src="/backgroundImage.jpg" style={{width:"100%"}}/>
                 <LoginFrom
                     handleLoginInput={this.handleLoginInput}
@@ -82,7 +82,7 @@ class Login extends Component {
                         redirectTo={this.state.redirectTo}
                         message={this.state.message}>
                 </LoginFrom>
-                <Footer></Footer>
+                <Footer><a href="https://mysterious-dusk-16372.herokuapp.com/" style={{color: "black"}}>@2020 LunchBuddy copyright</a></Footer>
             </Fragment>
         );
     }

@@ -4,7 +4,7 @@ import "./style.css";
 
 export function Card({ children }) {
   return (
-    <div className="card col-md-4 col-lg-4 float-left">
+    <div className="card col-md-3 col-lg-3 float-left">
       {children}
     </div>
   )

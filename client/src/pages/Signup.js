@@ -63,7 +63,7 @@ class Signup extends Component {
 					password={this.state.password}
 					redirectTo={this.state.redirectTo}>>
 				</SignupFrom>
-				<Footer></Footer>
+				<Footer><a href="https://mysterious-dusk-16372.herokuapp.com/" style={{color: "black"}}>@2020 LunchBuddy copyright</a></Footer>
 			</Fragment>
 		);
 	}

@@ -3,7 +3,7 @@ import "./style.css";
 
 function GroupButton(props) {
     return (
-    <button onClick={props.onClick}>{props.children}</button>
+    <button className="logBtn" onClick={props.onClick}>{props.children}</button>
     );
   }
   
