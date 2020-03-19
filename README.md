@@ -1,68 +1,98 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Welcome to LunchBuddy
+#### Have a try of our app: https://mysterious-dusk-16372.herokuapp.com/
+#### Why LunchBuddy?
+##### The idea behind this application is to encourage people within the same company to go out and have lunch together. This can pose as a team-building construct for the company as a whole.
 
-## Available Scripts
+![gif](client/public/2.gif)
 
-In the project directory, you can run:
+#### User Stories: ideas that we want
+##### For this application, we want the user to be able to sign-up/ login and then create and/or join a group for lunch.
+##### Once the group is created, we want other users to be able to click on that group and be able to join. The group will be created via a card and on that card and it will show what kind of food that group is going to go for for lunch.
 
-### `npm start`
+### Backend Side:
+### Models we have:
+##### lunchesschema: we have lunchname, restaurant name, host person's name, lunchtype, lunch time, image about the restaurant and the restaurant link:
+``` javascript
+const lunchSchema = new Schema({
+    lunchName: { type: String, required: true },
+    restaurant: {type: String, required: true },
+    host: {type: String, required: true },
+    lunchType: {type: String, required: false },
+    lunchTime: {type: String, required: true },
+    image: {type: String, required: false},
+    restaurantLink: {type: String, required: true },
+    attendees: {type: Number}
+});
+```
+``` javascript
+userSchema: we have username and password
+const userSchema = new Schema({
+    username: { type: String, required: true },
+    password: { type: String, required: true }
+});
+```
+#### Frontend Side:
+##### Components: we use react build the frontend of this project. We have total 11 components
+- Card
+- DeleteBtn
+- Footer
+- Grid
+- GroupButton
+- Header
+- JoinBtn
+- LoginForm
+- Nav
+- Signup Form
+- Wrapper
+#### We have a util folder with API.js file to make all the HTTP request
+``` javascript
+    getLunches: function() {
+        return axios.get("/api/lunches");
+    },
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    saveLunch: function(lunch) {
+        return axios.post("/api/lunches", lunch);
+    },
+    
+    deleteLunch: function(id) {
+        return axios.delete("/api/lunches/" + id)
+    },
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    updateLunch: function(id, attendeeCount){
+        return axios.put("/api/lunches/" + id,{$inc: {attendees:+1}});
+    },
 
-### `npm test`
+    getYelpApi: function(restaurant) {
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        return axios.get("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term="+ restaurant + "&location=94111",{
+        
+            headers: {
+            Authorization: 'Your_Yelp_API_Key'
+            }
+    })
+},
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+getUserName: function() {
+    return axios.get("/api/users/");
+},
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+saveUsers: function(user) {
+    return axios.post("/api/users", user);
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Technologies we use in this project
+- Bootstrap
+- API’s(Yelp API)
+- AJAX
+- JSON
+- Node.js
+- React.js
+- MongoDB
+- Mongoose
+- Axios(to make http request)
+- Body Parser
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+#### Hope you are enjoying using our Lunchbuddy app and know more people at your company.
